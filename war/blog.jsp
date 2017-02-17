@@ -100,14 +100,18 @@
 
 	            pageContext.setAttribute("greeting_content",
 
-	                                     greeting.getProperty("content"));
+	                    greeting.getProperty("content"));
+	            
+	            pageContext.setAttribute("greeting_date",
+
+	                    greeting.getProperty("date"));
 	            
 
 	            if (greeting.getProperty("user") == null) {
 
 	                %>
 
-	                <p>An anonymous person wrote:</p>
+	                <p>An anonymous person wrote on ${fn:escapeXml(greeting_date)}:</p>
 
 	                <%
 
@@ -117,7 +121,7 @@
 
 	                %>
 
-	                <p>${fn:escapeXml(greeting_user.nickname)} wrote:</p>
+	                <p>${fn:escapeXml(greeting_user.nickname)} wrote on ${fn:escapeXml(greeting_date)}:</p>
 
 	                <%
 

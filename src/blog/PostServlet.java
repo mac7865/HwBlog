@@ -10,7 +10,10 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +46,7 @@ public class PostServlet extends HttpServlet {
         String title = req.getParameter("title");	    
         String content = req.getParameter("content");
         Date date = new Date();
-       
+      
         Entity greeting = new Entity("Post", guestbookKey);
         greeting.setProperty("user", user);
         greeting.setProperty("date", date);
