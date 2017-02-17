@@ -75,7 +75,7 @@
 
 	    Query query = new Query("Post", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
 
-	    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
+	    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 
 	    if (greetings.isEmpty()) {
 
@@ -136,9 +136,9 @@
 	    }
 	%>
 
- 	<br></br>
-	
-    <p><a href="/allPosts.jsp">View all of our awesome posts by clicking here!</a></p>
+ 
+
+    
 
   </body>
 
