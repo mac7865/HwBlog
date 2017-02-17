@@ -72,8 +72,8 @@
 	    // Run an ancestor query to ensure we see the most up-to-date
 
 	    // view of the Greetings belonging to the selected Guestbook.
-
-	    Query query = new Query("Post", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
+		
+	    Query query = new Query("Post", guestbookKey);
 
 	    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 
@@ -135,8 +135,10 @@
 	        }
 	    }
 	%>
-
+ 	
+ 	<br></br>
  
+    <p><a href="/subscribe.jsp">Subscribe/Unsubscribe by clicking here!</a></p>
 
     
 

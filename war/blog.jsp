@@ -139,7 +139,7 @@
  	<br></br>
 	
     <p><a href="/allPosts.jsp">View all of our awesome posts by clicking here!</a></p>
-
+    <p><a href="/subscribe.jsp">Subscribe/Unsubscribe by clicking here!</a></p>
   </body>
 
 </html>
