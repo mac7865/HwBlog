@@ -2,3 +2,8 @@ body {
    font-family: Verdana, Helvetica, sans-serif;
    background-color: #48D1CC;
 }
+
+#posttitle {
+	font-size: 30;
+	font-weight: bold;
+}

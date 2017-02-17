@@ -40,12 +40,14 @@ public class PostServlet extends HttpServlet {
         // Guestbook should be limited to ~1/second.
 
 	    Key guestbookKey = KeyFactory.createKey("Guestbook", "default");
+        String title = req.getParameter("title");	    
         String content = req.getParameter("content");
         Date date = new Date();
        
-        Entity greeting = new Entity("Greeting", guestbookKey);
+        Entity greeting = new Entity("Post", guestbookKey);
         greeting.setProperty("user", user);
         greeting.setProperty("date", date);
+        greeting.setProperty("title", title);        
         greeting.setProperty("content", content);
         
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();

@@ -73,7 +73,7 @@
 
 	    // view of the Greetings belonging to the selected Guestbook.
 
-	    Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
+	    Query query = new Query("Post", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
 
 	    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
 
@@ -94,10 +94,14 @@
 	        <%
 
 	        for (Entity greeting : greetings) {
+	            pageContext.setAttribute("greeting_title",
+
+                        greeting.getProperty("title"));	        	
 
 	            pageContext.setAttribute("greeting_content",
 
 	                                     greeting.getProperty("content"));
+	            
 
 	            if (greeting.getProperty("user") == null) {
 
@@ -113,14 +117,14 @@
 
 	                %>
 
-	                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
+	                <p>${fn:escapeXml(greeting_user.nickname)} wrote:</p>
 
 	                <%
 
 	            }
 
 	            %>
-
+	            <blockquote id="posttitle">${fn:escapeXml(greeting_title)}</blockquote></div>
 	            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
 
 	            <%
