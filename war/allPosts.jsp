@@ -88,7 +88,7 @@
 	    } else {
 
 	        %>
-
+		    <img src="awesomePic.jpeg" align = "right" height="400" width="400"/>
 	        <p>Awesome Messages:</p>
 
 	        <%
